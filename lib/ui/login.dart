@@ -28,6 +28,7 @@
  * THE SOFTWARE.
  */
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../constants.dart';
@@ -117,6 +118,7 @@ class _LoginState extends State<Login> {
                         ),
                         onPressed: () {
                           // TODO: Add Create Account Route
+                          context.goNamed(createAccountRouteName);
                         },
                         child: const Text(
                           'Create Account',
