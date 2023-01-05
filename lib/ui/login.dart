@@ -118,7 +118,8 @@ class _LoginState extends State<Login> {
                         ),
                         onPressed: () {
                           // TODO: Add Create Account Route
-                          context.goNamed(createAccountRouteName);
+                          // context.goNamed(createAccountRouteName);
+                          context.pushNamed(createAccountRouteName);
                         },
                         child: const Text(
                           'Create Account',
