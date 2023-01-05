@@ -35,7 +35,7 @@ class MyRouter {
         path: '/create-account',
         name: createAccountRouteName,
         builder: (context, state) {
-          return const CreateAccount();
+          return const CreateAccount();  
         },
       ),
       GoRoute(
