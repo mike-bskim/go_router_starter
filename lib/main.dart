@@ -64,9 +64,9 @@ class MyApp extends StatelessWidget {
         // add new provider for login,
         Provider<MyRouter>(
           lazy: false,
-            create: (context){
-              return MyRouter(loginState);
-            },
+          create: (context) {
+            return MyRouter(loginState);
+          },
         )
         // TODO: Add Provider
       ],
@@ -79,7 +79,9 @@ class MyApp extends StatelessWidget {
             routeInformationProvider: router.routeInformationProvider,
             routeInformationParser: router.routeInformationParser,
             title: 'Navigation App',
-            theme: ThemeData(primarySwatch: Colors.blue,),
+            theme: ThemeData(
+              primarySwatch: Colors.blue,
+            ),
           );
           // return MaterialApp(
           //   debugShowCheckedModeBanner: false,

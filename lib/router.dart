@@ -7,6 +7,7 @@ import 'ui/create_account.dart';
 import 'ui/error_page.dart';
 import 'ui/home_screen.dart';
 import 'ui/login.dart';
+import 'ui/personal_info.dart';
 
 class MyRouter {
   final LoginState loginState;
@@ -38,11 +39,22 @@ class MyRouter {
         },
       ),
       GoRoute(
-        path: '/',
+        path: '/:tab',
         name: rootRouteName,
         builder: (context, state) {
-          return HomeScreen(tab: 'shopping');
+          final tab = state.params['tab'];
+          // return HomeScreen(tab: 'shopping');
+          return HomeScreen(tab: tab ?? 'shopping');
         },
+        routes: [
+          GoRoute(
+            path: 'personal', // '/' 없이 입력할 것.
+            name: profilePersonalRouteName,
+            builder: (context, state) {
+              return const PersonalInfo();
+            },
+          ),
+        ],
       ),
     ],
     redirect: (context, state) {
@@ -50,7 +62,7 @@ class MyRouter {
       final inAuthPages = state.subloc.contains(loginRouteName) ||
           state.subloc.contains(createAccountRouteName);
       //inAuth && true => go to home
-      if (inAuthPages && loggedIn) return '/';
+      if (inAuthPages && loggedIn) return '/cart';
       //notInAuth && false => go to loginPage
       if (!inAuthPages && !loggedIn) return '/login';
       //inAuth && false => stay inAuthPages(loginPage or createPage)

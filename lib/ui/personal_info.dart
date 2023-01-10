@@ -134,7 +134,10 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   ),
                 ),
               ),
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {
+                debugPrint('Profile > Personal Info > Update');
+                Navigator.pop(context);
+              },
               child: const Text(
                 'Update',
                 style: TextStyle(color: Colors.white),

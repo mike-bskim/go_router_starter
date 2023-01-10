@@ -28,6 +28,7 @@
  * THE SOFTWARE.
  */
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../constants.dart';
 
@@ -72,6 +73,9 @@ class _ProfileState extends State<Profile> {
               ),
               onTap: () {
                 // TODO: Add Personal Page Route
+                debugPrint('Profile > Personal Info');
+                context.pushNamed(profilePersonalRouteName,
+                    params: {'tab': 'profile'});
               },
             ),
           ),
@@ -82,12 +86,11 @@ class _ProfileState extends State<Profile> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
-              title: const Text(
-                'Payment',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              title: const Text('Payment',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               onTap: () {
                 // TODO: Add Payment Route
+                debugPrint('Profile > Payment');
               },
             ),
           ),
@@ -98,12 +101,11 @@ class _ProfileState extends State<Profile> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: ListTile(
-              title: const Text(
-                'Sign In Info',
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              title: const Text('Sign In Info',
+                  style: TextStyle(fontWeight: FontWeight.bold)),
               onTap: () {
                 // TODO: Add Signin Info Route
+                debugPrint('Profile > Sign In Info');
               },
             ),
           ),
@@ -114,12 +116,11 @@ class _ProfileState extends State<Profile> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListTile(
-          title: const Text(
-            'More Info',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+          title: const Text('More Info',
+              style: TextStyle(fontWeight: FontWeight.bold)),
           onTap: () {
             // TODO: Add More Info Route
+            debugPrint('Profile > More Info');
           },
         ),
       ),
