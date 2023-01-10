@@ -91,6 +91,8 @@ class _ProfileState extends State<Profile> {
               onTap: () {
                 // TODO: Add Payment Route
                 debugPrint('Profile > Payment');
+                context.pushNamed(profilePaymentRouteName,
+                    params: {'tab': 'profile'});
               },
             ),
           ),
@@ -106,6 +108,8 @@ class _ProfileState extends State<Profile> {
               onTap: () {
                 // TODO: Add Signin Info Route
                 debugPrint('Profile > Sign In Info');
+                context.pushNamed(profileSigninInfoRouteName,
+                    params: {'tab': 'profile'});
               },
             ),
           ),
@@ -121,6 +125,8 @@ class _ProfileState extends State<Profile> {
           onTap: () {
             // TODO: Add More Info Route
             debugPrint('Profile > More Info');
+            context.pushNamed(profileMoreInfoRouteName,
+                params: {'tab': 'profile'});
           },
         ),
       ),
