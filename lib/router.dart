@@ -17,9 +17,7 @@ class MyRouter {
     // path, error handler, redirect
     initialLocation: '/login',
     errorBuilder: (context, state) {
-      return ErrorPage(
-        error: state.error,
-      );
+      return ErrorPage(error: state.error);
     },
     // errorPageBuilder: (context, state) {
     //   return MaterialPage<void>(child: ErrorPage());
@@ -47,6 +45,16 @@ class MyRouter {
         },
       ),
     ],
+    redirect: (context, state) {
+      final loggedIn = loginState.loggedIn;
+      final inAuthPages = state.subloc.contains(loginRouteName) ||
+          state.subloc.contains(createAccountRouteName);
+      //inAuth && true => go to home
+      if (inAuthPages && loggedIn) return '/';
+      //notInAuth && false => go to loginPage
+      if (!inAuthPages && !loggedIn) return '/login';
+      //inAuth && false => stay inAuthPages(loginPage or createPage)
+    },
     refreshListenable: loginState,
     debugLogDiagnostics: true, // false when you release the app.
   );
