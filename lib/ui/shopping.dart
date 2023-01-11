@@ -50,6 +50,7 @@ class Shopping extends StatelessWidget {
               context.goNamed(
                 shopDetailsRouteName,
                 params: {'tab': 'shopping', 'item': value},
+                extra: 'testTest -$value',
               );
               // TODO: Add Push Details Route
             },

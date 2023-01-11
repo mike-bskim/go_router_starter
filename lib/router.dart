@@ -58,7 +58,7 @@ class MyRouter {
             name: shopDetailsRouteName, // Named 라우팅할때 매칭확인
             builder: (context, state) {
               final item = state.params['item'];
-              return Details(description: item!);
+              return Details(description: item!, extra: state.extra,);
             },
           ),
           GoRoute(

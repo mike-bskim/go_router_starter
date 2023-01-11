@@ -28,6 +28,9 @@
  * THE SOFTWARE.
  */
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../login_state.dart';
 
 class MoreInfo extends StatefulWidget {
   const MoreInfo({Key? key}) : super(key: key);
@@ -82,15 +85,18 @@ class _MoreInfoState extends State<MoreInfo> {
                 borderRadius: BorderRadius.circular(10.0),
               ),
               color: Colors.white,
-              child: const Align(
+              child: Align(
                 alignment: Alignment.center,
                 child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: ListTile(
-                    title: Text(
+                    title: const Text(
                       'Rate the App',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
+                    onTap: (){
+                      saveLogoutState(context);
+                    },
                   ),
                 ),
               ),
@@ -99,5 +105,9 @@ class _MoreInfoState extends State<MoreInfo> {
         ),
       ),
     );
+  }
+
+  void saveLogoutState(BuildContext context) {
+    Provider.of<LoginState>(context, listen: false).loggedIn = false;
   }
 }

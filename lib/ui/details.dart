@@ -28,13 +28,18 @@
  * THE SOFTWARE.
  */
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import '../cart_holder.dart';
 import 'package:provider/provider.dart';
 
+import '../constants.dart';
+
 class Details extends StatelessWidget {
   final String description;
+  final Object? extra;
 
-  const Details({Key? key, required this.description}) : super(key: key);
+  const Details({Key? key, required this.description, this.extra})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -53,6 +58,7 @@ class Details extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(description),
+            Text('extra - ${extra.toString()}'),
             const SizedBox(
               height: 20.0,
             ),
@@ -70,8 +76,9 @@ class Details extends StatelessWidget {
               onPressed: () {
                 Provider.of<CartHolder>(context, listen: false)
                     .addItem(description);
-		    // TODO: Add Root Route
-               },
+                // TODO: Add Root Route, 카트로 저장과 동시에 이동하게 변경.
+                context.goNamed(rootRouteName, params: {'tab': 'cart'});
+              },
               child: const Text(
                 'Add To Cart',
                 style: TextStyle(color: Colors.white),

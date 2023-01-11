@@ -27,7 +27,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-const String rootRouteName = '/';
+const String rootRouteName = 'root';
 const String cartRouteName = 'cart';
 const String createAccountRouteName = 'create-account';
 // const String detailsRouteName = 'details';
